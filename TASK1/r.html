@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+    
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            
+        }
+        .profile-photo {
+    width: 150px; 
+    height: 150px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    position: absolute;
+    top: 20px; 
+    right: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+
+
+}
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #333, #111);
+            color: #fff;
+            padding: 20px 0;
+            position:relative;
+            text-align: center;
+            text-shadow: #fff;
+            animation: fadeIn 1s ease-out;
+        }
+
+        header h1 {
+            font-size: 3em;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        header p {
+            font-size: 1.2em;
+            animation: fadeIn 2s ease-out;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease-in-out;
+            display:inline-block;
+            background-color:#555;
+            height: auto;
+            width:150px;
+            padding:5px;
+            border-radius: 20px;
+        
+        }
+
+        nav ul li a:hover {
+            background-color:blue;
+        }
+
+        section {
+            padding: 50px 0;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s, transform 1s;
+        
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #about {
+            background: #f4f4f4;
+        }
+
+        #projects {
+            background: #fff;
+        }
+
+        #skills {
+            background: #333;
+            color: #ffffff;
+        }
+
+        #contact {
+            background: #f4f4f4;
+        }
+        .experience{
+
+        
+            background-color:rgb(20, 196, 255);
+            padding: 20px;
+            margin: 120px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+        }
+        .expperience:hover{
+            background-color:rgb(0, 255, 238);
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+        }
+
+        /* Projects Gallery */
+        
+        .projects-gallery {
+            display:flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        
+        }
+        .project-item {
+            background-color:deeppink;
+            
+            padding: 20px;
+            margin: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .project-item:hover {
+            background-color:fuchsia;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-item h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-item p {
+            font-size: 1.1em;
+        }
+    
+        /* Education Section Styling */
+#education {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+}
+
+#education h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #333;
+}
+
+#education table {
+    width: 100%;
+    border-collapse:separate;
+    margin: 0 auto;
+}
+
+#education th, #education td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#education th {
+    background-color: #333;
+    color: white;
+    font-size: 1.2em;
+}
+
+#education tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#education tr:hover {
+    background-color: #f1f1f1;
+}
+
+#education td {
+    font-size: 1.1em;
+}
+
+#education table {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+        /* Skills List */
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            display: inline-block;
+            background: #555;
+            padding: 10px 15px;
+            margin: 10px;
+            border-radius: 5px;
+            color: white;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+
+        .skills-list li:hover {
+            background: blue
+        }
+
+        /* Contact Section */
+        .contact-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: darkmagenta;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .fa {
+  padding:10px;
+  font-size:100px;
+  box-shadow: #f4f4f4;
+
+  width: 20px;
+  text-align:center;
+  text-decoration: none;
+  border-radius: 100%;
+}
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+  width:50px
+}
+.fa-twitter {
+  background-color:black;
+  color:aqua;
+  width:50px
+  
+
+}
+.fa-instagram{
+    background-color:aliceblue;
+    color:deeppink;
+    width:50px
+
+
+}
+.fa-snapchat{
+    background-color:black;
+    color:aliceblue;
+    width:50px
+
+
+}
+.fa-youtube{
+    background-color:aliceblue;
+    color:darkred;
+    width:50px;
+
+}
+.fa-linkedin{
+    background-color:aliceblue;
+    color:blue;
+    width:50px
+ } 
+ .fa-github{
+    background-color: #f4f4f4;
+    color:#111;
+    width:50px;
+ }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Mudi Venkata Kartheek</h1>
+            <p>Web Developer | Designer | Programmer</p>
+            <img src="C:\Users\Kartheek\OneDrive\Pictures\WhatsApp Image 2024-02-23 at 09.36.47_b0d6f39d.jpg" alt="kartheek" class="profile-photo"float="right">
+        </div>
+        <br>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#experience"> Experience</a></li>
+                <li><a href="#education">Education </a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- About Me Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a passionate web developer with experience in creating dynamic websites and web applications. My expertise includes HTML, CSS, JavaScript, and various web frameworks.</p>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-gallery">
+                <div class="project-item">
+                    <img src="https://www.risefuel.com/hs-fs/hubfs/What%20is%20Responsive%20Web%20Design-2.png?width=600&name=What%20is%20Responsive%20Web%20Design-2.png" alt="Image" style="width: 300px;">
+                    <h3>Project 1</h3>
+        
+                    <p>Responsive Website Design</p>
+                </div>
+                <div class="project-item">
+                    <img src="https://uizard.io/static/368d09a6dfbbf65bf884852b4a999817/a8e47/57cb6160fb1aa8d95422f8a01ff0a7e11191285a-1440x835.png" style ="width:300px;"
+                    <h3>Project 2</h3>
+                    <p>Banking Application</p>
+                </div>
+                <div class="project-item">
+                    <img src="https://imagesvs.oneindia.com/webp/img/2024/01/irctc3-1706348794.jpg" style="width:300px;"
+                    <h3>Project 3</h3>
+                    <p>Full-Stack Web Application</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="experience">
+        <div class="My experience">
+
+                <h2>Work Experience</h2>
+                <p>Web Developer Intern | Infosys Company | Summer 2024</p>
+                <p>Worked on front-end development tasks and collaborated with the team to enhance website performance.</p>
+                <p>Worked in Some research projects</p>
+                <br>
+                <p>Java Developer Intern | Microsoft Compny | Summer 2024</p>
+                <p>Worked on java web development tasks and other frameworks </p>
+
+                <br>
+                <br>
+                <h2>Senior Web Developer</h2>
+                <p>XYZ Tech, 2018 - Present</p>
+                <p>Developed and maintained multiple websites and web applications using HTML, CSS, and JavaScript.</p>
+                <p>Collaborated with designers and backend developers to implement new features and improve user experience.</p>
+                <p>Optimized website performance and conducted regular code reviews to ensure high quality and scalability.</p>
+                <br>
+                <br>
+                <h2>Junior Web Developer</h2>
+                <p>ABC Solutions, 2016 - 2018</p>
+                <p>Assisted in the development of responsive websites and web applications.</p>
+                <p>Participated in brainstorming sessions to generate innovative ideas for projects.</p>
+                <p>Provided support for existing websites, including troubleshooting and bug fixes.</p>
+    
+        </div>
+    </section>
+        <!-- Education Section -->
+        <section id="education">
+            <div class="container">
+                <h2>Education</h2>
+                <table style="width:100%; border-collapse: collapse;">
+                    <tr style="background-color: #333; color: #fff; text-align: left;">
+                        <th style="padding: 10px;">Degree</th>
+                        <th style="padding: 10px;">Institution</th>
+                        <th style="padding: 10px;">Year</th>
+                    </tr>
+                    <tr style="background-color: #f4f4f4; border-style: double;">
+                        <td style="padding: 10px;">Bachelor of Technology in Computer Science</td>
+                        <td style="padding: 10px;">Amrita Vishwa Vidyapeetham </td>
+                        <td style="padding: 10px;">2023-2027</td>
+                    </tr>
+                    <tr style="background-color: #fff;border-style:double;">
+                        <td style="padding: 10px;">Intermediate</td>
+                        <td style="padding: 10px;">Narayana Junior College</td>
+                        <td style="padding: 10px;">2021-2023</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+    
+                            <li><a href="https://www.w3schools.com/html/" target="_blank">HTML</a></li>
+                            <li><a href="https://www.w3schools.com/css/" target="_blank">CSS</a></li>
+                            <li><a href="https://www.w3schools.com/js/" target="_blank">JavaScript</a></li>
+                            <li><a href="https://reactjs.org/" target="_blank">React</a></li>
+                            <li><a href="https://nodejs.org/en" target="_blank">Node.js</a></li>
+                            <li><a href="https://www.w3schools.com/python/" target="_blank">Python</a></li>
+                            <li><a href="https://www.w3schools.com/java/" target="_blank">Java</a></li>
+                            <li><a href="https://www.w3schools.com/sql/" target="_blank">SQL</a></li>
+
+                
+
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>If you'd like to reach out, feel free to contact me via email or LinkedIn.</p>
+            <a href="https://myaccount.google.com/?hl=en&utm_source=OGB&utm_medium=act&gar=WzEyMF0&pli=1&nlr=1" class="contact-link">Email Me</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 KartheekMudi</p>
+        <div class="icons">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <a href="https://www.facebook.com/kartheek.mudi?mibextid=ZbWKwL" class="fa fa-facebook"target=_blank></a>
+        <a href="https://x.com/MudiKartheek29?t=IytrwWSE4pGKCKuyCaFwPA&s=09" class="fa fa-twitter"target=_blank></a>
+        <a href="https://www.instagram.com/kartheek._.4?igsh=MXRweHMzcDNvaGR6eg==" class="fa fa-instagram"target=_blank></a>
+        <a href="https://www.snapchat.com/add/kartheekmudi?share_id=CccIafm5nAI&locale=en-US" class="fa fa-snapchat"target=_blank></a>
+        <a href="https://www.linkedin.com/in/mudi-kartheek-11b52321a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="fa fa-linkedin"target=_blank></a>
+        <a href="https://youtube.com/@kartheekmudi2480?si=5cTRRqLgcIE2EK61" class="fa fa-youtube"target=_blank></a>
+        <a href="https://github.com/Kartheek-3/desktop-tutorial.git"class="fa fa-github" target=_blank></a>
+    
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Reveal sections on scroll
+        const sections = document.querySelectorAll('section');
+
+        function revealSection() {
+            const triggerBottom = window.innerHeight / 1.2;
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+
+                if (sectionTop < triggerBottom) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealSection);
+        revealSection(); // Initial check
+    </script>
+</body>
+</html>
